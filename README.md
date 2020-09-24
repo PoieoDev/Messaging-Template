@@ -1,5 +1,6 @@
 # Messaging-Template
 This is a basic template for building a messaging system in Django/ReactJs
+This template is built on the foundation of the UserAccounts Template (https://github.com/PoieoDev/User-Accounts-Template)
 
 ## To run this template:
 Run the backend with the command: python manage.py runserver OR python3 manage.py runserver (will only work with python 3.0 and greater)
@@ -16,4 +17,3 @@ This template is free for anyone to use as they desire. We, at Poieo Dev, are of
   - Add long-life chat by merging with user accounts templates
   - Allow user to request emails with messages and reply to email to send message back
   - Allow user to request text messages with user messages and reply to text to send message back via Twilio
-   
