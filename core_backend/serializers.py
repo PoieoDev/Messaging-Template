@@ -2,12 +2,25 @@ from rest_framework.validators import UniqueValidator
 from rest_framework_jwt.settings import api_settings
 from rest_framework import serializers
 from django.contrib.auth.models import User
-from .models import ExtendedUser
+from .models import ExtendedUser, Messages, Rooms
 
 class ExtUserSerializer(serializers.ModelSerializer):
     class Meta:
         model=ExtendedUser
         fields = ('user_type', 'date_joined', 'updated_on',)
+
+
+class MessagesSerializer(serializers.ModelSerializer):
+    class Meta:
+        model=Messages
+        fields = ('room_id', 'author', 'created_at', 'message',)
+
+
+class RoomsSerializer(serializers.ModelSerializer):
+    class Meta:
+        model=Messages
+        fields = ('id', 'member_0', 'member_1', 'member_2', 'member_3', 'member_4', 'member_5', 'member_6')
+
 
 class UserSerializer(serializers.ModelSerializer):
     extUser = ExtUserSerializer()

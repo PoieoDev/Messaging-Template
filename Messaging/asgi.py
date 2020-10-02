@@ -9,8 +9,8 @@ https://docs.djangoproject.com/en/3.0/howto/deployment/asgi/
 
 import os
 
-from django.core.asgi import get_asgi_application
+from channels.asgi import get_channel_layer
 
 os.environ.setdefault('DJANGO_SETTINGS_MODULE', 'Messaging.settings')
 
-application = get_asgi_application()
+channel_layer = get_channel_layer()

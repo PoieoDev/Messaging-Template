@@ -39,7 +39,8 @@ INSTALLED_APPS = [
     'django.contrib.staticfiles',
     'rest_framework',
     'corsheaders',
-    'core_backend'
+    'core_backend',
+    'channels',
 ]
 
 MIDDLEWARE = [
@@ -53,7 +54,7 @@ MIDDLEWARE = [
     'corsheaders.middleware.CorsMiddleware',
 ]
 
-ROOT_URLCONF = 'UserAccounts.urls'
+ROOT_URLCONF = 'Messaging.urls'
 
 TEMPLATES = [
     {
@@ -71,7 +72,7 @@ TEMPLATES = [
     },
 ]
 
-WSGI_APPLICATION = 'UserAccounts.wsgi.application'
+WSGI_APPLICATION = 'Messaging.wsgi.application'
 
 
 # Database
@@ -147,4 +148,16 @@ JWT_AUTH = {
     'JWT_EXPIRATION_DELTA': datetime.timedelta(days=3),
     # allow refreshing of tokens
     'JWT_ALLOW_REFRESH': True,
+}
+
+
+ASGI_APPLICATION = "core_backend.urls.application"
+
+CHANNEL_LAYERS = {
+    "default": {
+        "BACKEND": "channels_redis.core.RedisChannelLayer",
+        "CONFIG": {
+            "hosts": ['redis://localhost:6379/4']
+        }
+    },
 }
